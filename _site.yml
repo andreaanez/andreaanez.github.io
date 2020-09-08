@@ -1,14 +1,17 @@
 name: "first-website"
 output_dir: "."
 navbar:
-  title: "My Beautiful Website"
-  
+  title: "Andrea's Website"
   left:
     - text: "Home"
+      icon: fa-home
       href: index.html
-    - text: "GIS Work"
+    - text: "Projects"
       href: geog176A.html
+  right:
+    - icon: fa-github
+      href: https://github.com/andreaanez
       
 output:
   html_document:
-    theme: darkly
+    theme: cosmo

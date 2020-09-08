@@ -6,7 +6,20 @@ title: "About Me"
 # Hi, I'm Andrea Anez.
 </center>
   
-[Lorem ipsum](https://www.lipsum.com/)I'm a computer engineering major at UCSB and a member of the women's track and cross country teams. 
+I'm a computer engineering major at UCSB and a member of the women's track and cross country teams. 
 My academic focus is on machine learning and data science and I have included some of my favorite projects on this website. 
 This summer I completed my first internship with Northrop Grumman as a Dev-ops engineer setting up a continuous delivery system through Argocd, Kubernetes and Jenkins.
 When I'm not working I like to spend time at the beach and I have recently learned to surf. 
+
+<p class="aligncenter">
+   <img  src="img/hiking.jpg" width ="200" height ="150" alt="My picture" />
+</p>
+
+<style>
+.aligncenter {
+    text-align: center;
+}
+</style>
+
+
+
