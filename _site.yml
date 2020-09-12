@@ -14,7 +14,6 @@ navbar:
     - text: "Resume"
       icon: fa-file
       href: cv.html
-      
     
   right:
     - icon: fa-github
