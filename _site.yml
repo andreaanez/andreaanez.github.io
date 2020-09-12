@@ -1,17 +1,31 @@
-name: "first-website"
+---
+title: "My document"
+date: "`r Sys.Date()`"
+author: John Doe
 output_dir: "."
 navbar:
-  title: "Andrea's Website"
   left:
     - text: "Home"
       icon: fa-home
       href: index.html
-    - text: "Projects"
+    - text: "Personal Projects"
+      icon: fa-rocket
       href: geog176A.html
+    - text: "Resume"
+      icon: fa-file
+      href: cv.html
+      
+    
   right:
     - icon: fa-github
       href: https://github.com/andreaanez
-      
+    - icon: fa-linkedin-in
 output:
-  html_document:
-    theme: cosmo
+  rmdformats::html_docco:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: true
+    highlight: tango
+---
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<title>Projects</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+<script src="site_libs/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+<link href="site_libs/readthedown-0.1/readthedown.css" rel="stylesheet" />
+<script src="site_libs/readthedown-0.1/readthedown.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+<div id="content" data-toggle="wy-nav-shift">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("text-table-of-contents");
+});
+</script>
+
+<!-- code folding -->
+
+<nav id="nav-top" role="navigation" aria-label="top navigation">
+    <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+</nav>
+
+
+<div id="header">
+<h1 class="title">Projects</h1>
+</div>
+
+
+<div id="sidebar">
+    <h2><a href="#content">Projects</a></h2>
+    <div id="table-of-contents">
+      <ul>
+      <li><a href="#predicting-race-times"><span>Predicting Race Times</span></a></li>
+      </ul>
+    </div>
+    
+    <div id="postamble" data-toggle="wy-nav-shift" class="status">
+            </div>
+</div>
+
+<div id="main">
+<p>The projects shown below are summaries of projects I have completed for my classes and for fun. Further details can be found about each project by clicking on the heading.</p>
+<div id="predicting-race-times" class="section level2">
+<h2><a href="https://github.com/andreaanez/164-ucsb-track-ml">Predicting Race Times</a></h2>
+In this project my partner <a href="https://www.linkedin.com/in/lu-alice-han-495920160/">Lu Han</a> and I analyzed historical data from members of the UCSB track team and used it along with other attributes to predict future race times for the 800 and 1600 meter events. Using a Cubic Polynomial Kernel and Afine Linear Regression we reached a MSE of 18 and 11 respectively when comparing actual and predicted race times. Due to over fitting with the Cubic Polynomial Kernel method we selected Linear Regression for our final results. A benefit of the Linear Regression model is that it alowed us to identify the most influential attributes in predicting an athletes time. The results from one randomization of the test and training data for the women’s team is shown below.
+<p class="aligncenter">
+<img  src="img/running.jpg" width ="300" height ="240" alt="My picture" />
+</p>
+<style>
+.aligncenter {
+    text-align: center;
+}
+</style>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+<script>
+$(document).ready(function () {
+ 	 	$('#content img')
+ 	  .addClass("image-thumb");
+      $('#content img')
+ 	  .addClass("image-lb");
+  $('#content').magnificPopup({
+	      type:'image',
+	      closeOnContentClick: false,
+	      closeBtnInside: false,
+	      delegate: 'img',
+	      gallery: {enabled: false },
+	      image: {
+	        verticalFit: true,
+          titleSrc: 'alt'
+	      }
+ 	    });
+ 	});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

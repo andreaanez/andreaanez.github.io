@@ -1,25 +1,56 @@
+
 ---
 title: "About Me"
+author: "Hi I'm Andrea"
 ---
-  
-<center>
-# Hi, I'm Andrea Anez.
-</center>
-  
-I'm a computer engineering major at UCSB and a member of the women's track and cross country teams. 
-My academic focus is on machine learning and data science and I have included some of my favorite projects on this website. 
-This summer I completed my first internship with Northrop Grumman as a Dev-ops engineer setting up a continuous delivery system through Argocd, Kubernetes and Jenkins.
-When I'm not working I like to spend time at the beach and I have recently learned to surf. 
 
-<p class="aligncenter">
-   <img  src="img/hiking.jpg" width ="200" height ="150" alt="My picture" />
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I'm a computer engineer at the University of California Santa Barbara and a member of the women's track team. My academic focus is on machine learning and I have included some of my favorite projects on this website. Scroll below to learn more about me. 
+
+<img  src="img/sunset.jpg" alt="My picture" />
+
+<br />
+
+## 2020 Summer Internship 
+
+
+As an intern with Northrop Grumman I supported a Dev-ops team that created and managed platforms used to build documents. During my ten weeks with the team I was responsible for building a new platform which utilized continuous integration platforms [Docker](https://www.docker.com/why-docker), Kubernetes, Argocd and Jenkins. The new platform was not only many times faster than the original, which utilized Team City, but also much more cost effective since the aforementioned platforms where all open source. 
+
+<p class=".noborder">
+   <img  src="img/ng.png" alt="My picture" width ="500" height ="300" />
+</p>
+<br />
+
+## [2018 Start Up - "Moresolar"](https://medium.com/@moresolarllc) 
+
+During my freshman year at UCSB I had the opportunity create a team of students centered around the goal of developing a simple device that would increase the efficiency of solar panels. This team
+eventually evolved into the company “Moresolar.” After winning the [UCSB New Venture Competition](https://www.youtube.com/watch?v=k4r0d9u37r0) (watch my pitch at 17:10) our company went on join the UCSB G2 Summer Incubator. As a co-founder my responsibilities included managing our technical team composed of interns [Haixu Yin](https://www.linkedin.com/in/haixu-yin-b03126b2/) and [Syaza Mustafah](https://www.linkedin.com/in/syazamustafah/) as well as drafting the provisional patent. By the end of the summer our technical team had successfully developed a working prototype and gathered rigorous performance data that ultimately earned Moresolar additional seed funding of $75,000 from angel investors.
+
+<p class=".noborder">
+   <img  src="img/solar.jpg" alt="My picture" width ="500" height ="300" />
 </p>
 
 <style>
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+.noborder img{border: white;}
+
 .aligncenter {
     text-align: center;
 }
+.alignright {
+  text-align: right;
+}
+
+.alignleft {
+  text-align: left;
+}
+
 </style>
-
-
-
