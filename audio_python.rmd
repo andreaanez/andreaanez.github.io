@@ -106,7 +106,8 @@ pd.DataFrame(a).to_csv("/content/drive/My Drive/ECE160/f300.csv")
 
   - Note for our train and test split we do a 50:50 split. Typically the split is 70:30 however, we didn't want to start excluding genres by reducing the size of the training data too much. Even when data is randomized in my experience things still tend to get "clumped" in certain areas. Here we initially plot a 2D graph in order to get a sense of how the data is distributed. 
 
--   I also created two versions of data set sizes to test the model on before applying the actual data size.
+-   I also created a smaller data set to test the model on before applying the full data set.
+
 ```{r, eval = FALSE}
 
 ### _________________HEY ____________________________________
@@ -211,7 +212,7 @@ plt.title('Data Distribution for, GMM: spherical')
 ![](img/gmm_s.png)
 ![](img/gmm.png)
 
-## Appending the song recomendations to a csv file. 
+## Appending the song recomendations to a csv file 
 
 ```{r, eval = FALSE}
 lables_clusters = gmm.predict(X_train)
@@ -235,6 +236,12 @@ song_test.to_csv("/content/drive/My Drive/ECE160/song_test.csv")
 
 ```
 
-![](img/csv_data1.png)
-![](img/csv_data2.png)
-![](img/csv_data3.png)
+*Click the images to enlarge them*
+
+![](img/csv_data3.png){width=500px}
+
+![](img/csv_data1.png){width=500px}
+
+![](img/csv_data2.png){width=500px}
+
+

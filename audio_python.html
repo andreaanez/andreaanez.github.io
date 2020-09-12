@@ -154,7 +154,7 @@ img {
   </a>
 </li>
 <li>
-  <a href="geog176A.html">
+  <a href="projects.html">
     <span class="fa fa-rocket"></span>
      
     Personal Projects
@@ -286,7 +286,7 @@ img {
 <h2>Plotting Data</h2>
 <ul>
 <li><p>Note for our train and test split we do a 50:50 split. Typically the split is 70:30 however, we didn’t want to start excluding genres by reducing the size of the training data too much. Even when data is randomized in my experience things still tend to get “clumped” in certain areas. Here we initially plot a 2D graph in order to get a sense of how the data is distributed.</p></li>
-<li><p>I also created two versions of data set sizes to test the model on before applying the actual data size.</p></li>
+<li><p>I also created a smaller data set to test the model on before applying the full data set.</p></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">### _________________HEY ____________________________________</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
@@ -377,8 +377,8 @@ img {
 <span id="cb5-35"><a href="#cb5-35"></a><span class="kw">plt.title</span>(<span class="st">&#39;Data Distribution for, GMM: spherical&#39;</span>)</span></code></pre></div>
 <p><img src="img/full.png" /> <img src="img/tied.png" /> <img src="img/gmm_s.png" /> <img src="img/gmm.png" /></p>
 </div>
-<div id="appending-the-song-recomendations-to-a-csv-file." class="section level2">
-<h2>Appending the song recomendations to a csv file.</h2>
+<div id="appending-the-song-recomendations-to-a-csv-file" class="section level2">
+<h2>Appending the song recomendations to a csv file</h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>lables_clusters =<span class="st"> </span><span class="kw">gmm.predict</span>(X_train)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>cluster_matrix =<span class="st"> </span><span class="kw">pd.DataFrame</span>(lables_clusters) </span>
 <span id="cb6-3"><a href="#cb6-3"></a>song_train =<span class="st"> </span><span class="kw">pd.DataFrame</span>(song_arr_train)</span>
@@ -397,7 +397,10 @@ img {
 <span id="cb6-16"><a href="#cb6-16"></a><span class="kw">print</span>(<span class="st">&#39;Testing Data&#39;</span>)</span>
 <span id="cb6-17"><a href="#cb6-17"></a><span class="kw">print</span> (song_test)</span>
 <span id="cb6-18"><a href="#cb6-18"></a><span class="kw">song_test.to_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/song_test.csv&quot;</span>)</span></code></pre></div>
-<p><img src="img/csv_data1.png" /> <img src="img/csv_data2.png" /> <img src="img/csv_data3.png" /></p>
+<p><em>Click the images to enlarge them</em></p>
+<p><img src="img/csv_data3.png" width="500" /></p>
+<p><img src="img/csv_data1.png" width="500" /></p>
+<p><img src="img/csv_data2.png" width="500" /></p>
 </div>
 </div>
 
