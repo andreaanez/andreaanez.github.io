@@ -4,6 +4,11 @@ title: "Projects"
 
 The projects shown below are summaries of projects I have completed for my classes and for fun. Further details can be found about each project by clicking on the heading.
 
+## [Music Recomendation System in Python](audio_python.html)
+  As part of project for a class, ECE 160- Multimedia Systems led by Yon Visell, I created a music recommendation system that analyzed the audio content of songs and then grouped those songs based on the similarities in their audio content. Check out the full project by clicking the heading above.
+  
+  ![](img/full.png)
+
 ## [Predicting Race Times ](https://github.com/andreaanez/164-ucsb-track-ml)
 
   In this project my partner [Lu Han](https://www.linkedin.com/in/lu-alice-han-495920160/) and I analyzed historical data from members of the UCSB track team and used it along with other attributes to predict future race times for the 800 and 1600 meter events. 
@@ -12,6 +17,9 @@ The projects shown below are summaries of projects I have completed for my class
    <img  src="img/matlab.jpg" width ="200" height ="150" alt="My picture" />
 </p>
 
+
+  
+  
 <style>
 .aligncenter {
     text-align: center;

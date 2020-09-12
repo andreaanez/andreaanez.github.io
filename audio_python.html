@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<title>Music Recomendation System in Python</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+<script src="site_libs/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+<link href="site_libs/docco-0.1/docco.css" rel="stylesheet" />
+<script src="site_libs/docco-0.1/docco.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+<div class="container-fluid main-container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 page">
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="geog176A.html">
+    <span class="fa fa-rocket"></span>
+     
+    Personal Projects
+  </a>
+</li>
+<li>
+  <a href="cv.html">
+    <span class="fa fa-file"></span>
+     
+    Resume
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreaanez">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/andrea-anez/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+
+<div id="header">
+<h1 class="title">Music Recomendation System in Python</h1>
+</div>
+
+
+<div id="content">
+<p><img src="img/audio.png" /></p>
+<div id="the-problem" class="section level2">
+<h2>The Problem</h2>
+<p>Given a data set of 1,500 + songs how can we analyze the audio content of these songs to make recommendations for new songs from a second data base of 1,500+ songs. It was also not allowed to use any metadata (song name etc.) to sort or identify songs. With this large of a data base a secondary challenge was developing an analysis method that would keep the run time to a minimum. This was, as professor Visell intended, a very vague problem description where many different approaches and solutions where possible.</p>
+</div>
+<div id="the-solution" class="section level2">
+<h2>The Solution</h2>
+<p>By examining features such as beat, energy and loudness using the Essentia library I used a Gaussian Mixture Model (GMM) to group the first data base of songs into ten categories or “playlists” as I liked to think of them. Based on the parameters of these initial categories I was able to place the second grouping of songs into one of these ten groupings based on their audio characteristics. For example if you had a collection of country music, classical music and rap on your spotify this model would make recommendations of new songs for each genre.</p>
+</div>
+<div id="about-gaussian-mixture-models" class="section level2">
+<h2>About Gaussian Mixture Models</h2>
+<p>Gaussian Mixtures are ideal for this problem since they allow for unsupervised learning which is necessity given that we don’t know what is considered a correct classification. Since GMM is a probabilistic model that assumes all data points are generated from a mixture of finite number of Gaussian distributions it can clump the data into a defined number of groups. More specifically GMM works by creating ellipsoid functions around groupings of data and determining the likely hood that a point is contained in one data grouping over the other.</p>
+</div>
+<div id="lets-get-to-coding" class="section level2">
+<h2>Lets Get To Coding</h2>
+<ul>
+<li>First we need to load in the songs from our data base.</li>
+<li>Songs are loaded into a massive matrix using the Pandas library.</li>
+<li>Then we need to extract the four features that we have chosen from Essentia .</li>
+<li>Finally, the features extracted from many points within each song where apeanded to the row corresponding to each song and loaded into a csv file</li>
+<li>Using the csv file to save features after they where calculated was a huge time saving feature.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>base_path =<span class="st"> &#39;/content/drive/Shared drives/ECE160-Visell-2020/Media Files/similarity_dataFolder&#39;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#&#39;/content/drive/My Drive/ECE160/Project3/music_sub&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a> <span class="co">#You&#39;ll need to change this path to reflect where the data is in your Drive</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>rhythm_extractor =<span class="st"> </span><span class="kw">es.RhythmExtractor2013</span>(<span class="dt">method=</span><span class="st">&quot;multifeature&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>fs =<span class="st"> </span><span class="dv">44100</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>file_names =<span class="st"> </span><span class="kw">glob.glob</span>(<span class="kw">os.path.join</span>(base_path, <span class="st">&#39;*mp3&#39;</span>))</span>
+<span id="cb1-7"><a href="#cb1-7"></a>a =<span class="st"> </span>[]</span>
+<span id="cb1-8"><a href="#cb1-8"></a>song_list =<span class="st"> </span>[]</span>
+<span id="cb1-9"><a href="#cb1-9"></a>feature_size =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>num_songs =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>length =<span class="st"> </span><span class="kw">len</span>(base_path)</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="cf">for</span> song <span class="cf">in</span> file_names<span class="op">:</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="st">  </span>num_songs <span class="op">+</span><span class="er">=</span><span class="dv">1</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>  song_name =<span class="st"> </span>song[length<span class="op">:</span>]</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="kw">song_list.append</span>(song_name)</span>
+<span id="cb1-17"><a href="#cb1-17"></a>  audioSig =<span class="st"> </span><span class="kw">es.MonoLoader</span>(<span class="dt">filename=</span>song,<span class="dt">sampleRate=</span>fs)()</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  </span>
+<span id="cb1-19"><a href="#cb1-19"></a>  <span class="co">#danceability: range from 0 to 3 for most danceable</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>  dance=<span class="st"> </span><span class="kw">es.Danceability</span>()</span>
+<span id="cb1-21"><a href="#cb1-21"></a>  r,s =<span class="st"> </span><span class="kw">dance</span>(audioSig)</span>
+<span id="cb1-22"><a href="#cb1-22"></a>  a =<span class="st"> </span><span class="kw">np.append</span> (a, r)</span>
+<span id="cb1-23"><a href="#cb1-23"></a>  <span class="co">#print(&quot;Dance: &quot;,r)</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a>  <span class="co">#energy: computes the energy of an array</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>  energy=<span class="st"> </span><span class="kw">es.Energy</span>()</span>
+<span id="cb1-27"><a href="#cb1-27"></a>  a =<span class="st"> </span><span class="kw">np.append</span> (a, <span class="kw">energy</span>(audioSig))</span>
+<span id="cb1-28"><a href="#cb1-28"></a>  <span class="co">#print(&quot;Energy estimate:&quot;, energy(audioSig))</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a>  <span class="co">#loudness: computes loudness as the energy of the signal raised to the power of 0.67</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a>  loud=<span class="st"> </span><span class="kw">es.Loudness</span>()</span>
+<span id="cb1-32"><a href="#cb1-32"></a>  a =<span class="st"> </span><span class="kw">np.append</span> (a, <span class="kw">loud</span>(audioSig))</span>
+<span id="cb1-33"><a href="#cb1-33"></a>  <span class="co">#print(&quot;Loudness estimate:&quot;, loud(audioSig))</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a>  <span class="co"># centroid</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>  cent=<span class="st"> </span><span class="kw">es.Centroid</span>()</span>
+<span id="cb1-37"><a href="#cb1-37"></a>  a =<span class="st"> </span><span class="kw">np.append</span> (a, <span class="kw">cent</span>(audioSig))</span>
+<span id="cb1-38"><a href="#cb1-38"></a>  <span class="co">#print(&quot;Centroid estimate:&quot;, cent(audioSig))</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a></span>
+<span id="cb1-40"><a href="#cb1-40"></a>  <span class="cf">if</span> (num_songs <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)<span class="op">:</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="st">      </span>feature_size =<span class="st"> </span><span class="kw">len</span>(a) </span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a>  </span>
+<span id="cb1-44"><a href="#cb1-44"></a>a =<span class="st"> </span><span class="kw">a.reshape</span>(num_songs,feature_size)</span>
+<span id="cb1-45"><a href="#cb1-45"></a></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="kw">pd.DataFrame</span>(song_list)<span class="kw">.to_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/song_name.csv&quot;</span>)</span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="kw">pd.DataFrame</span>(a)<span class="kw">.to_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/f300.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="building-the-data-set-and-reading-csv-files" class="section level2">
+<h2>Building the Data Set and Reading CSV files</h2>
+<ul>
+<li>Here we organize the data from our CSV file and randomize it into test and training sets.</li>
+<li>Keep in mind these are not the typical test and training sets since we won’t be able to measure the accuracy in a quantifiable manner. The two sets are more to simulate the real world applpications of this program.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>    def <span class="kw">Build_Data_Set</span>()<span class="op">:</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="st">    </span>song_names =<span class="st"> </span><span class="kw">pd.read_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/song_name.csv&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    song_names.columns =<span class="st"> </span>[<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;song&quot;</span>]</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    song_names=<span class="kw">song_names.drop</span>(<span class="dt">columns=</span>[<span class="st">&#39;ID&#39;</span>])</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  </span>
+<span id="cb2-6"><a href="#cb2-6"></a>    data_df =<span class="st"> </span><span class="kw">pd.read_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/f2,500.csv&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    data_df.columns =<span class="st"> </span>[<span class="st">&#39;ID&#39;</span>,<span class="st">&#39;dance&#39;</span>,<span class="st">&#39;energy&#39;</span>,<span class="st">&#39;loud&#39;</span>,<span class="st">&#39;cent.&#39;</span>]</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="kw">data_df.insert</span>(<span class="dv">5</span>, <span class="st">&#39;song_names&#39;</span>, song_names)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    data_df =<span class="st"> </span><span class="kw">data_df.reindex</span>(<span class="kw">np.random.permutation</span>(data_df.index))</span>
+<span id="cb2-10"><a href="#cb2-10"></a>  </span>
+<span id="cb2-11"><a href="#cb2-11"></a>    data_df =<span class="st"> </span><span class="kw">data_df.drop</span>(<span class="dt">columns=</span>[<span class="st">&#39;ID&#39;</span>])</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    return data_df</span></code></pre></div>
+</div>
+<div id="plotting-data" class="section level2">
+<h2>Plotting Data</h2>
+<ul>
+<li><p>Note for our train and test split we do a 50:50 split. Typically the split is 70:30 however, we didn’t want to start excluding genres by reducing the size of the training data too much. Even when data is randomized in my experience things still tend to get “clumped” in certain areas. Here we initially plot a 2D graph in order to get a sense of how the data is distributed.</p></li>
+<li><p>I also created two versions of data set sizes to test the model on before applying the actual data size.</p></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">### _________________HEY ____________________________________</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">### USE 150 for 300 sub set</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">### use 1250 for full set </span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">##___________________________________________________________</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>data =<span class="st"> </span><span class="kw">Build_Data_Set</span>()</span>
+<span id="cb3-9"><a href="#cb3-9"></a>index =<span class="st"> </span><span class="dv">1250</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a>X_train =<span class="st"> </span>data[<span class="op">:</span>index ]</span>
+<span id="cb3-13"><a href="#cb3-13"></a>X_test =<span class="st"> </span>data[index<span class="op">:</span>]</span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a>song_arr_test =<span class="st"> </span>X_test.loc[<span class="op">:</span>,<span class="st">&#39;song_names&#39;</span>]</span>
+<span id="cb3-16"><a href="#cb3-16"></a>song_arr_train=<span class="st"> </span>X_train.loc[<span class="op">:</span>,<span class="st">&#39;song_names&#39;</span>]</span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="kw">print</span> (song_arr_train)</span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="kw">print</span> (song_arr_test)</span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="kw">plt.figure</span>(<span class="dt">figsize=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="kw">plt.scatter</span>(data[<span class="st">&quot;dance&quot;</span>],data[<span class="st">&quot;loud&quot;</span>])</span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="kw">plt.xlabel</span>(<span class="st">&#39;Dance&#39;</span>)</span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="kw">plt.ylabel</span>(<span class="st">&#39;Loud&#39;</span>)</span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="kw">plt.title</span>(<span class="st">&#39;Data Distribution&#39;</span>)</span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="kw">plt.show</span>()</span></code></pre></div>
+</div>
+<div id="testing-and-training-using-sklearn" class="section level2">
+<h2>Testing and Training using Sklearn</h2>
+<p>Gaussian Mixture Types <a href="https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html">(sklearn)</a></p>
+<ul>
+<li><p>Full: each component has its own general covariance matrix</p></li>
+<li><p>Tied: all components share the same general covariance matrix</p></li>
+<li><p>Diag: each component has its own diagonal covariance matrix</p></li>
+<li><p>Spherical: each component has its own single variance</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>X_train =<span class="st"> </span><span class="kw">X_train.drop</span>(<span class="dt">columns=</span>[<span class="st">&#39;song_names&#39;</span>])</span>
+<span id="cb4-2"><a href="#cb4-2"></a>X_test =<span class="st"> </span><span class="kw">X_test.drop</span>(<span class="dt">columns=</span>[<span class="st">&#39;song_names&#39;</span>])</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a>from sklearn.mixture import GaussianMixture</span>
+<span id="cb4-5"><a href="#cb4-5"></a>gmm =<span class="st"> </span><span class="kw">GaussianMixture</span>(<span class="dt">n_components=</span><span class="dv">12</span>, <span class="dt">covariance_type=</span><span class="st">&#39;full&#39;</span>, <span class="dt">random_state=</span><span class="dv">0</span>)<span class="kw">.fit</span>(X_train)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>gmmt =<span class="st"> </span><span class="kw">GaussianMixture</span>(<span class="dt">n_components=</span><span class="dv">12</span>, <span class="dt">covariance_type=</span><span class="st">&#39;tied&#39;</span>, <span class="dt">random_state=</span><span class="dv">0</span>)<span class="kw">.fit</span>(X_train)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>gmmd =<span class="st"> </span><span class="kw">GaussianMixture</span>(<span class="dt">n_components=</span><span class="dv">12</span>, <span class="dt">covariance_type=</span><span class="st">&#39;diag&#39;</span>, <span class="dt">random_state=</span><span class="dv">0</span>)<span class="kw">.fit</span>(X_train)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>gmms =<span class="st"> </span><span class="kw">GaussianMixture</span>(<span class="dt">n_components=</span><span class="dv">12</span>, <span class="dt">covariance_type=</span><span class="st">&#39;spherical&#39;</span>, <span class="dt">random_state=</span><span class="dv">0</span>)<span class="kw">.fit</span>(X_train)</span>
+<span id="cb4-9"><a href="#cb4-9"></a>probs_train =<span class="st"> </span><span class="kw">gmm.predict_proba</span>(X_train)</span>
+<span id="cb4-10"><a href="#cb4-10"></a>test  =<span class="st"> </span><span class="kw">gmm.predict</span>(X_test)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>probs_test =<span class="st"> </span><span class="kw">gmm.predict_proba</span>(X_test)</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="kw">print</span>(<span class="st">&quot;probs_train&quot;</span>,probs_train[<span class="op">:</span><span class="dv">20</span>]<span class="kw">.round</span>(<span class="dv">3</span>))</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#print(&quot;probs_test&quot;, probs_test[:20].round(3))</span></span></code></pre></div>
+</div>
+<div id="plotting-gmm-clusters-for-test-data" class="section level2">
+<h2>Plotting GMM Clusters for Test Data</h2>
+<p>The plots bellow display’s data points (individual songs) that are color coded based on the cluster they where assigned. This allows us to visualize the effect of different modifications to the GMM as described above as well as how the model is grouping the data. Ultimately we chose to use “full” for our actual song recommendations since there appeared to be very little variation between the models. I chose 12 categories based on previous research by (Berenzweig et al. 2004.)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>fig =<span class="st"> </span><span class="kw">plt.figure</span>()</span>
+<span id="cb5-2"><a href="#cb5-2"></a>ax =<span class="st"> </span><span class="kw">plt.axes</span>(<span class="dt">projection=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">plt.gca</span>()</span>
+<span id="cb5-4"><a href="#cb5-4"></a>labels =<span class="st"> </span><span class="kw">gmm.fit</span>(X_test)<span class="kw">.predict</span>(X_test)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">ax.scatter</span>(X_test[<span class="st">&#39;dance&#39;</span>], X_test[<span class="st">&#39;loud&#39;</span>],X_test[<span class="st">&#39;energy&#39;</span>], <span class="dt">c=</span>labels, <span class="dt">s=</span><span class="dv">40</span>, <span class="dt">cmap=</span><span class="st">&#39;viridis&#39;</span>, <span class="dt">zorder=</span><span class="dv">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">plt.xlabel</span>(<span class="st">&#39;Dance&#39;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="kw">plt.ylabel</span>(<span class="st">&#39;Energy&#39;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="kw">plt.title</span>(<span class="st">&#39;Data Distribution for, GMM: full&#39;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a>fig =<span class="st"> </span><span class="kw">plt.figure</span>()</span>
+<span id="cb5-11"><a href="#cb5-11"></a>ax =<span class="st"> </span><span class="kw">plt.axes</span>(<span class="dt">projection=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="kw">plt.gca</span>()</span>
+<span id="cb5-13"><a href="#cb5-13"></a>labels =<span class="st"> </span><span class="kw">gmmt.fit</span>(X_test)<span class="kw">.predict</span>(X_test)</span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="kw">ax.scatter</span>(X_test[<span class="st">&#39;dance&#39;</span>], X_test[<span class="st">&#39;loud&#39;</span>],X_test[<span class="st">&#39;energy&#39;</span>], <span class="dt">c=</span>labels, <span class="dt">s=</span><span class="dv">40</span>, <span class="dt">cmap=</span><span class="st">&#39;viridis&#39;</span>, <span class="dt">zorder=</span><span class="dv">2</span>)</span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="kw">plt.xlabel</span>(<span class="st">&#39;Dance&#39;</span>)</span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="kw">plt.ylabel</span>(<span class="st">&#39;Energy&#39;</span>)</span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="kw">plt.title</span>(<span class="st">&#39;Data Distribution for, GMM: tied&#39;</span>)</span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a>fig =<span class="st"> </span><span class="kw">plt.figure</span>()</span>
+<span id="cb5-20"><a href="#cb5-20"></a>ax =<span class="st"> </span><span class="kw">plt.axes</span>(<span class="dt">projection=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="kw">plt.gca</span>()</span>
+<span id="cb5-22"><a href="#cb5-22"></a>labels =<span class="st"> </span><span class="kw">gmmd.fit</span>(X_test)<span class="kw">.predict</span>(X_test)</span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="kw">ax.scatter</span>(X_test[<span class="st">&#39;dance&#39;</span>], X_test[<span class="st">&#39;loud&#39;</span>],X_test[<span class="st">&#39;energy&#39;</span>], <span class="dt">c=</span>labels, <span class="dt">s=</span><span class="dv">40</span>, <span class="dt">cmap=</span><span class="st">&#39;viridis&#39;</span>, <span class="dt">zorder=</span><span class="dv">2</span>)</span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="kw">plt.xlabel</span>(<span class="st">&#39;Dance&#39;</span>)</span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="kw">plt.ylabel</span>(<span class="st">&#39;Energy&#39;</span>)</span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="kw">plt.title</span>(<span class="st">&#39;Data Distribution for, GMM: diag&#39;</span>)</span>
+<span id="cb5-27"><a href="#cb5-27"></a></span>
+<span id="cb5-28"><a href="#cb5-28"></a>fig =<span class="st"> </span><span class="kw">plt.figure</span>()</span>
+<span id="cb5-29"><a href="#cb5-29"></a>ax =<span class="st"> </span><span class="kw">plt.axes</span>(<span class="dt">projection=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="kw">plt.gca</span>()</span>
+<span id="cb5-31"><a href="#cb5-31"></a>labels =<span class="st"> </span><span class="kw">gmms.fit</span>(X_test)<span class="kw">.predict</span>(X_test)</span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="kw">ax.scatter</span>(X_test[<span class="st">&#39;dance&#39;</span>], X_test[<span class="st">&#39;loud&#39;</span>],X_test[<span class="st">&#39;energy&#39;</span>], <span class="dt">c=</span>labels, <span class="dt">s=</span><span class="dv">40</span>, <span class="dt">cmap=</span><span class="st">&#39;viridis&#39;</span>, <span class="dt">zorder=</span><span class="dv">2</span>)</span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="kw">plt.xlabel</span>(<span class="st">&#39;Dance&#39;</span>)</span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="kw">plt.ylabel</span>(<span class="st">&#39;Energy&#39;</span>)</span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="kw">plt.title</span>(<span class="st">&#39;Data Distribution for, GMM: spherical&#39;</span>)</span></code></pre></div>
+<p><img src="img/full.png" /> <img src="img/tied.png" /> <img src="img/gmm_s.png" /> <img src="img/gmm.png" /></p>
+</div>
+<div id="appending-the-song-recomendations-to-a-csv-file." class="section level2">
+<h2>Appending the song recomendations to a csv file.</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>lables_clusters =<span class="st"> </span><span class="kw">gmm.predict</span>(X_train)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>cluster_matrix =<span class="st"> </span><span class="kw">pd.DataFrame</span>(lables_clusters) </span>
+<span id="cb6-3"><a href="#cb6-3"></a>song_train =<span class="st"> </span><span class="kw">pd.DataFrame</span>(song_arr_train)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">song_train.insert</span>(<span class="dv">1</span>, <span class="st">&#39;clusters&#39;</span>, lables_clusters)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>song_train =<span class="st"> </span><span class="kw">song_train.sort_values</span>(<span class="dt">by=</span>[<span class="st">&#39;clusters&#39;</span>],<span class="dt">ascending=</span>False)</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="kw">print</span>(<span class="st">&#39;Training Data&#39;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="kw">print</span> (song_train)</span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="kw">song_train.to_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/song_train.csv&quot;</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a>lables =<span class="st"> </span><span class="kw">gmm.predict</span>(X_test)</span>
+<span id="cb6-12"><a href="#cb6-12"></a>matrix =<span class="st"> </span><span class="kw">pd.DataFrame</span>(lables) </span>
+<span id="cb6-13"><a href="#cb6-13"></a>song_test =<span class="st"> </span><span class="kw">pd.DataFrame</span>(song_arr_test)</span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="kw">song_test.insert</span>(<span class="dv">1</span>, <span class="st">&#39;clusters&#39;</span>, lables)</span>
+<span id="cb6-15"><a href="#cb6-15"></a>song_test =<span class="st"> </span><span class="kw">song_test.sort_values</span>(<span class="dt">by=</span>[<span class="st">&#39;clusters&#39;</span>],<span class="dt">ascending=</span>False)</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="kw">print</span>(<span class="st">&#39;Testing Data&#39;</span>)</span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="kw">print</span> (song_test)</span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="kw">song_test.to_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/song_test.csv&quot;</span>)</span></code></pre></div>
+<p><img src="img/csv_data1.png" /> <img src="img/csv_data2.png" /> <img src="img/csv_data3.png" /></p>
+</div>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+<script>
+$(document).ready(function () {
+ 	 	$('#content img')
+ 	  .addClass("image-thumb");
+      $('#content img')
+ 	  .addClass("image-lb");
+  $('#content').magnificPopup({
+	      type:'image',
+	      closeOnContentClick: false,
+	      closeBtnInside: false,
+	      delegate: 'img',
+	      gallery: {enabled: true },
+	      image: {
+	        verticalFit: true,
+          titleSrc: 'alt'
+	      }
+ 	    });
+ 	});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
