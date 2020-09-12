@@ -20,11 +20,12 @@ navbar:
     - icon: fa-github
       href: https://github.com/andreaanez
     - icon: fa-linkedin-in
+      href: https://www.linkedin.com/in/andrea-anez/
 output:
   rmdformats::html_docco:
     self_contained: true
     thumbnails: true
-    lightbox: true
+    lightbox: true 
     gallery: true
     highlight: tango
 ---

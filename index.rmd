@@ -20,7 +20,7 @@ I'm a computer engineer at the University of California Santa Barbara and a memb
 As an intern with Northrop Grumman I supported a Dev-ops team that created and managed platforms used to build documents. During my ten weeks with the team I was responsible for building a new platform which utilized continuous integration platforms [Docker](https://www.docker.com/why-docker), Kubernetes, Argocd and Jenkins. The new platform was not only many times faster than the original, which utilized Team City, but also much more cost effective since the aforementioned platforms where all open source. 
 
 <p class=".noborder">
-   <img  src="img/ng.png" alt="My picture" width ="500" height ="300" />
+   <img  src="img/argo-cd.jpg" alt="My picture" width ="500" height ="300" />
 </p>
 <br />
 
