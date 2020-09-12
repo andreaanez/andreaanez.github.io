@@ -10,7 +10,7 @@ navbar:
       href: index.html
     - text: "Personal Projects"
       icon: fa-rocket
-      href: geog176A.html
+      href: projects.html
     - text: "Resume"
       icon: fa-file
       href: cv.html
