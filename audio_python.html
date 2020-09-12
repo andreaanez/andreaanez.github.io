@@ -196,7 +196,7 @@ img {
 <p><img src="img/audio.png" /></p>
 <div id="the-problem" class="section level2">
 <h2>The Problem</h2>
-<p>Given a data set of 1,500 + songs how can we analyze the audio content of these songs to make recommendations for new songs from a second data base of 1,500+ songs. It was also not allowed to use any metadata (song name etc.) to sort or identify songs. With this large of a data base a secondary challenge was developing an analysis method that would keep the run time to a minimum. This was, as professor Visell intended, a very vague problem description where many different approaches and solutions where possible.</p>
+<p>Given a data set of 1,500 + songs how can Ianalyze the audio content of these songs to make recommendations for new songs from a second data base of 1,500+ songs. It was also not allowed to use any metadata (song name etc.) to sort or identify songs. With this large of a data base a secondary challenge was developing an analysis method that would keep the run time to a minimum. This was, as professor Visell intended, a very vague problem description where many different approaches and solutions where possible.</p>
 </div>
 <div id="the-solution" class="section level2">
 <h2>The Solution</h2>
@@ -204,16 +204,16 @@ img {
 </div>
 <div id="about-gaussian-mixture-models" class="section level2">
 <h2>About Gaussian Mixture Models</h2>
-<p>Gaussian Mixtures are ideal for this problem since they allow for unsupervised learning which is necessity given that we don’t know what is considered a correct classification. Since GMM is a probabilistic model that assumes all data points are generated from a mixture of finite number of Gaussian distributions it can clump the data into a defined number of groups. More specifically GMM works by creating ellipsoid functions around groupings of data and determining the likely hood that a point is contained in one data grouping over the other.</p>
+<p>Gaussian Mixtures are ideal for this problem since they allow for unsupervised learning which is necessity given that we don’t know what is considered a correct classification. Since GMM is a probabilistic model, it assumes that all data points are generated from a mixture of a finite number of Gaussian distributions that can be clumped into a defined number of groups. More specifically, GMM works by creating ellipsoid functions around groupings of data and determining the likely hood that a point is contained in one data grouping over the other.</p>
 </div>
 <div id="lets-get-to-coding" class="section level2">
 <h2>Lets Get To Coding</h2>
 <ul>
-<li>First we need to load in the songs from our data base.</li>
-<li>Songs are loaded into a massive matrix using the Pandas library.</li>
-<li>Then we need to extract the four features that we have chosen from Essentia .</li>
-<li>Finally, the features extracted from many points within each song where apeanded to the row corresponding to each song and loaded into a csv file</li>
-<li>Using the csv file to save features after they where calculated was a huge time saving feature.</li>
+<li>First, we load the songs from our data base.</li>
+<li>Second songs are appended to a massive matrix using the Pandas library.</li>
+<li>Then the four features that we have chosen from the Essentia library are extracted.</li>
+<li>Finally, the features extracted from multiple points within each song are appended to the row corresponding to each song and loaded into a csv file.</li>
+<li>Using the csv file to save features after they where calculated helped save allot of time.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>base_path =<span class="st"> &#39;/content/drive/Shared drives/ECE160-Visell-2020/Media Files/similarity_dataFolder&#39;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co">#&#39;/content/drive/My Drive/ECE160/Project3/music_sub&#39;</span></span>
@@ -267,7 +267,8 @@ img {
 <h2>Building the Data Set and Reading CSV files</h2>
 <ul>
 <li>Here we organize the data from our CSV file and randomize it into test and training sets.</li>
-<li>Keep in mind these are not the typical test and training sets since we won’t be able to measure the accuracy in a quantifiable manner. The two sets are more to simulate the real world applpications of this program.</li>
+<li>Keep in mind these are not the typical test and training sets since we won’t be able to measure the accuracy or our model, at least not quantitatively. The two sets are more to simulate the real world applications of this program.</li>
+<li>Note for our train and test split we do a 50:50 split. Typically the split is 70:30 however, I didn’t want to exclude genres by overly reducing the size of the training data. Even when data is randomized, in my experience, things still tend to get “clumped” in certain areas.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>    def <span class="kw">Build_Data_Set</span>()<span class="op">:</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="st">    </span>song_names =<span class="st"> </span><span class="kw">pd.read_csv</span>(<span class="st">&quot;/content/drive/My Drive/ECE160/song_name.csv&quot;</span>)</span>
@@ -285,8 +286,8 @@ img {
 <div id="plotting-data" class="section level2">
 <h2>Plotting Data</h2>
 <ul>
-<li><p>Note for our train and test split we do a 50:50 split. Typically the split is 70:30 however, we didn’t want to start excluding genres by reducing the size of the training data too much. Even when data is randomized in my experience things still tend to get “clumped” in certain areas. Here we initially plot a 2D graph in order to get a sense of how the data is distributed.</p></li>
-<li><p>I also created a smaller data set to test the model on before applying the full data set.</p></li>
+<li>Here we initially plot a 2D graph in order to get a sense of how the data is distributed.</li>
+<li>I also created a smaller data set to test the model on before applying the full data set.</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">### _________________HEY ____________________________________</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
@@ -323,6 +324,7 @@ img {
 <li><p>Diag: each component has its own diagonal covariance matrix</p></li>
 <li><p>Spherical: each component has its own single variance</p></li>
 </ul>
+<p>12 categories or clusters where chosen based on existing documentation <a href="https://www.ee.columbia.edu/~dpwe/pubs/BerenLEW04-museval.pdf">(Berenzweig et al. 2004.)</a></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>X_train =<span class="st"> </span><span class="kw">X_train.drop</span>(<span class="dt">columns=</span>[<span class="st">&#39;song_names&#39;</span>])</span>
 <span id="cb4-2"><a href="#cb4-2"></a>X_test =<span class="st"> </span><span class="kw">X_test.drop</span>(<span class="dt">columns=</span>[<span class="st">&#39;song_names&#39;</span>])</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -339,7 +341,7 @@ img {
 </div>
 <div id="plotting-gmm-clusters-for-test-data" class="section level2">
 <h2>Plotting GMM Clusters for Test Data</h2>
-<p>The plots bellow display’s data points (individual songs) that are color coded based on the cluster they where assigned. This allows us to visualize the effect of different modifications to the GMM as described above as well as how the model is grouping the data. Ultimately we chose to use “full” for our actual song recommendations. I chose 12 categories based on existing documentation <a href="https://www.ee.columbia.edu/~dpwe/pubs/BerenLEW04-museval.pdf">(Berenzweig et al. 2004.)</a></p>
+<p>The plots bellow display the data points or songs that are color coded based on the cluster they where assigned by the model. This allows us to visualize the effect of different modifications to the GMM. Ultimately, I chose to use “full” setting for our actual song recommendations.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>fig =<span class="st"> </span><span class="kw">plt.figure</span>()</span>
 <span id="cb5-2"><a href="#cb5-2"></a>ax =<span class="st"> </span><span class="kw">plt.axes</span>(<span class="dt">projection=</span><span class="st">&#39;3d&#39;</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw">plt.gca</span>()</span>
@@ -401,6 +403,10 @@ img {
 <p><img src="img/csv_data3.png" width="500" /></p>
 <p><img src="img/csv_data1.png" width="500" /></p>
 <p><img src="img/csv_data2.png" width="500" /></p>
+</div>
+<div id="citations" class="section level2">
+<h2>Citations</h2>
+<p>Berenzweig, A. (2004). A Large-Scale Evaluation of Acoustic and Subjective Music- Similarity Measures. Retrieved from <a href="https://www.ee.columbia.edu/~dpwe/pubs/BerenLEW04-museval.pdf" class="uri">https://www.ee.columbia.edu/~dpwe/pubs/BerenLEW04-museval.pdf</a></p>
 </div>
 </div>
 
