@@ -19,7 +19,7 @@ navbar:
   right:
     - icon: fa-github
       href: https://github.com/andreaanez
-    - icon: fa-linkedin-in
+    - icon: fa-linkedin
       href: https://www.linkedin.com/in/andrea-anez/
 output:
   rmdformats::html_docco:

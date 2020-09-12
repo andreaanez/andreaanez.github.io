@@ -24,13 +24,31 @@ As an intern with Northrop Grumman I supported a Dev-ops team that created and m
 </p>
 <br />
 
-## [2018 Start Up - "Moresolar"](https://medium.com/@moresolarllc) 
+
+## [Cross Country and Track](https://ucsb.prestosports.com/sports/w-track/2020-21/bios/anez_andrea_o2fo?view=bio)
+As a member of UCSB women's track and cross country teams I'm thankful for the opportunity to train with other dedicated, physically tough and supportive women. 
+My biggest achievement thus far has been helping the Gauchos to a second place finish in the 2019 Big West Track and Field Conference after scoring in the 10k event. Additionally, although I didn't score, I'm proud to be apart of the top seven girls who won the Big West Cross Country championships my freshman year.
+
+<p class=".noborder">
+   <img  src="img/team.jpg" alt="My picture" width ="500" height ="300" />
+</p>
+<br />
+
+## [Start Up - "Moresolar"](https://medium.com/@moresolarllc) 
 
 During my freshman year at UCSB I had the opportunity create a team of students centered around the goal of developing a simple device that would increase the efficiency of solar panels. This team
 eventually evolved into the company “Moresolar.” After winning the [UCSB New Venture Competition](https://www.youtube.com/watch?v=k4r0d9u37r0) (watch my pitch at 17:10) our company went on join the UCSB G2 Summer Incubator. As a co-founder my responsibilities included managing our technical team composed of interns [Haixu Yin](https://www.linkedin.com/in/haixu-yin-b03126b2/) and [Syaza Mustafah](https://www.linkedin.com/in/syazamustafah/) as well as drafting the provisional patent. By the end of the summer our technical team had successfully developed a working prototype and gathered rigorous performance data that ultimately earned Moresolar additional seed funding of $75,000 from angel investors.
 
 <p class=".noborder">
    <img  src="img/solar.jpg" alt="My picture" width ="500" height ="300" />
+</p>
+<br />
+
+## Where I Grew Up
+Exeter CA is a small agricultural town located in the valley just bellow Sequoia National Park. Growing up with miles of empty ranch land right in my backyard lent its self to exploring and I spent most of my time outdoors. Having a big yard also meant lots of pets and lots of chores. By high school I was famous for selling eggs from my flock of 100+ chickens. Below is a picture of my sister and I on our trusty steed "James." 
+
+<p class=".noborder">
+   <img  src="img/james.jpg" alt="My picture" width ="500" height ="300" />
 </p>
 
 <style>
