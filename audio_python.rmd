@@ -20,12 +20,12 @@ into one of these ten groupings based on their audio characteristics. For exampl
 Gaussian Mixtures are ideal for this problem since they allow for unsupervised learning which is necessity given that we don't know what is considered a correct classification. Since GMM is a probabilistic model, it assumes that all data points are generated from a mixture of a finite number of Gaussian distributions that can be clumped into a defined number of groups. More specifically, GMM works by creating ellipsoid functions around groupings of data and determining the likely hood that a point is contained in one data grouping over the other.
 
 
-## Lets Get To Coding 
+## Let's Get To Coding 
 - First, we load the songs from our data base.
 - Second songs are appended to a massive matrix using the Pandas library.
 - Then the four features that we have chosen from the Essentia library are extracted.
 - Finally, the features extracted from multiple points within each song are appended to the row corresponding to each song and loaded into a csv file.
-- Using the csv file to save features after they where calculated helped save allot of time. 
+- Using the csv file to save features after they where calculated was instrumental in saving time. 
 
 ```{r, eval = FALSE}
 base_path = '/content/drive/Shared drives/ECE160-Visell-2020/Media Files/similarity_dataFolder'
@@ -103,7 +103,7 @@ pd.DataFrame(a).to_csv("/content/drive/My Drive/ECE160/f300.csv")
   
 ```
   
-## Plotting Data 
+## Plotting the perliminary Data 
 
   - Here we initially plot a 2D graph in order to get a sense of how the data is distributed. 
 -   I also created a smaller data set to test the model on before applying the full data set.

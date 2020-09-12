@@ -207,13 +207,13 @@ img {
 <p>Gaussian Mixtures are ideal for this problem since they allow for unsupervised learning which is necessity given that we don’t know what is considered a correct classification. Since GMM is a probabilistic model, it assumes that all data points are generated from a mixture of a finite number of Gaussian distributions that can be clumped into a defined number of groups. More specifically, GMM works by creating ellipsoid functions around groupings of data and determining the likely hood that a point is contained in one data grouping over the other.</p>
 </div>
 <div id="lets-get-to-coding" class="section level2">
-<h2>Lets Get To Coding</h2>
+<h2>Let’s Get To Coding</h2>
 <ul>
 <li>First, we load the songs from our data base.</li>
 <li>Second songs are appended to a massive matrix using the Pandas library.</li>
 <li>Then the four features that we have chosen from the Essentia library are extracted.</li>
 <li>Finally, the features extracted from multiple points within each song are appended to the row corresponding to each song and loaded into a csv file.</li>
-<li>Using the csv file to save features after they where calculated helped save allot of time.</li>
+<li>Using the csv file to save features after they where calculated was instrumental in saving time.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>base_path =<span class="st"> &#39;/content/drive/Shared drives/ECE160-Visell-2020/Media Files/similarity_dataFolder&#39;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co">#&#39;/content/drive/My Drive/ECE160/Project3/music_sub&#39;</span></span>
@@ -283,8 +283,8 @@ img {
 <span id="cb2-11"><a href="#cb2-11"></a>    data_df =<span class="st"> </span><span class="kw">data_df.drop</span>(<span class="dt">columns=</span>[<span class="st">&#39;ID&#39;</span>])</span>
 <span id="cb2-12"><a href="#cb2-12"></a>    return data_df</span></code></pre></div>
 </div>
-<div id="plotting-data" class="section level2">
-<h2>Plotting Data</h2>
+<div id="plotting-the-perliminary-data" class="section level2">
+<h2>Plotting the perliminary Data</h2>
 <ul>
 <li>Here we initially plot a 2D graph in order to get a sense of how the data is distributed.</li>
 <li>I also created a smaller data set to test the model on before applying the full data set.</li>
