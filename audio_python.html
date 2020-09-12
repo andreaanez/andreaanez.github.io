@@ -339,7 +339,7 @@ img {
 </div>
 <div id="plotting-gmm-clusters-for-test-data" class="section level2">
 <h2>Plotting GMM Clusters for Test Data</h2>
-<p>The plots bellow display’s data points (individual songs) that are color coded based on the cluster they where assigned. This allows us to visualize the effect of different modifications to the GMM as described above as well as how the model is grouping the data. Ultimately we chose to use “full” for our actual song recommendations since there appeared to be very little variation between the models. I chose 12 categories based on previous research by (Berenzweig et al. 2004.)</p>
+<p>The plots bellow display’s data points (individual songs) that are color coded based on the cluster they where assigned. This allows us to visualize the effect of different modifications to the GMM as described above as well as how the model is grouping the data. Ultimately we chose to use “full” for our actual song recommendations. I chose 12 categories based on existing documentation <a href="https://www.ee.columbia.edu/~dpwe/pubs/BerenLEW04-museval.pdf">(Berenzweig et al. 2004.)</a></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>fig =<span class="st"> </span><span class="kw">plt.figure</span>()</span>
 <span id="cb5-2"><a href="#cb5-2"></a>ax =<span class="st"> </span><span class="kw">plt.axes</span>(<span class="dt">projection=</span><span class="st">&#39;3d&#39;</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw">plt.gca</span>()</span>
