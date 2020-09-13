@@ -1,3 +1,61 @@
 ---
 title: "Andrea Anez"
 ---
+
+Goleta CA 93117• (559)-909 9169 • anez@ucsb.edu • www.linkedin.com/in/andrea-anez
+
+
+**DOD Clearance Level: Secret, Top Secret investigation in process**
+
+## SUMMARY  
+<hr>
+As a Computer Engineering major, I’m hoping to focus on the software applications of my major. Currently, I’m working as a summer intern at Northrop Grumman on a Dev-ops team helping to deploy container management systems and continues delivery tools. 
+
+## EDUCATION
+<hr>
+
+**University of California Santa Barbara 	Expected Graduation: June 2022
+B.S. Computer Engineering**
+
+**Languages**
+
+-   C++, Python, MATLAB, R
+
+**Projects**
+
+  - Predicted race times for my track team by training a mathematical model on historical data, implemented the model in MATLAB.
+  - Classified songs biased on user preference using a Gaussian Mixture Model and implemented with Python using the Essentia, Pandas and Scikit Learn libraries.
+
+## EXPERIENCE
+<hr>
+**Northrop Grumman – Aerospace, San Diego**				June 2020 – September 2020
+*Summer Intern* 
+
+-   Primary team member responsible for implementing a new container management system 
+-   Significantly reduced build times by utilizing continuous delivery tools Docker, Kubernetes, Argocd and Jenkins
+-   Provided an unlimited number of build agents at no cost and optimized resource consumption
+
+**Moresolar, Santa Barbara** 			 		         November 2017 -September 2019
+*Founder*
+
+-   Organized a team of students to compete in the New Venture Competition at UC Santa Barbara 
+-   Led numerous pitches to Santa Barbara community members, business leaders, and investors 	
+-   Managed $20,000 in seed funding and negotiated $100,000 in additional investment
+-   Worked with legal advisers to draft and submit a provisional patent
+-   Collaborated with researchers at the National Renewable Energy Laboratories to verify device performance 
+
+## EXTRACURRICULAR 
+<hr>
+**NCAA Division 1 Athletics**  October 2017- present
+
+-   Top seven runner on the 2017 women's cross-country team which captured the Big West Conference Tittle 
+
+**Society of Women Engineers** 	December 2018-present
+
+-   Volunteered at Isla Vista Elementary teaching student’s robotics and programming
+
+## AWARDS
+<hr>
+**2017 New Venture Competition – Overall Winner, John and Cheryl Gerngross Impact Prize **  May 2018 
+-   Delivered the first half of a fifteen-minute pitch and answered questions from local business leaders. A video by UCTV can be found on my LinkedIn. 
+
